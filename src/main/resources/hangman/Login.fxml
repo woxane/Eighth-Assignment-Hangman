@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hangman.LoginController">
    <children>
       <Label layoutX="230.0" layoutY="111.0" style="-fx-font-weight: bold;" text="Login" textFill="WHITE">
          <font>
@@ -30,7 +30,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <Button layoutX="246.0" layoutY="390.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="108.0" style="-fx-background-color: #181818; -fx-border-radius: 10; -fx-border-color: #638767; -fx-border-width: 1.7;" text="Login" textFill="WHITE">
+      <Button layoutX="246.0" layoutY="390.0" mnemonicParsing="false" onAction="#login" prefHeight="49.0" prefWidth="108.0" style="-fx-background-color: #181818; -fx-border-radius: 10; -fx-border-color: #638767; -fx-border-width: 1.7;" text="Login" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
@@ -43,5 +43,10 @@
       </ImageView>
       <Hyperlink layoutX="344.0" layoutY="457.0" text="sign up" textFill="#fffefe" />
       <Label layoutX="209.0" layoutY="460.0" text="don't have any account ? " textFill="#666666" />
+      <Label layoutX="191.0" layoutY="216.0" text="username or password is incorrect" textFill="RED" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
