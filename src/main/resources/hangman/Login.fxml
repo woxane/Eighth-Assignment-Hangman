@@ -43,7 +43,7 @@
       </ImageView>
       <Hyperlink layoutX="344.0" layoutY="457.0" text="sign up" textFill="#fffefe" />
       <Label layoutX="209.0" layoutY="460.0" text="don't have any account ? " textFill="#666666" />
-      <Label layoutX="191.0" layoutY="216.0" text="username or password is incorrect" textFill="RED" visible="false">
+      <Label fx:id="credentialLabel" layoutX="191.0" layoutY="216.0" text="username or password is incorrect" textFill="RED" visible="false">
          <font>
             <Font size="15.0" />
          </font>
