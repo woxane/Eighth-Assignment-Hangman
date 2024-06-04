@@ -41,5 +41,7 @@
             <Image url="@Github.png" />
          </image>
       </ImageView>
+      <Hyperlink layoutX="344.0" layoutY="457.0" text="sign up" textFill="#fffefe" />
+      <Label layoutX="209.0" layoutY="460.0" text="don't have any account ? " textFill="#666666" />
    </children>
 </AnchorPane>
