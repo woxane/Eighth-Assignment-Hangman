@@ -20,17 +20,17 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="usernameTextField" alignment="CENTER" layoutX="179.0" layoutY="300.0" prefHeight="40.0" prefWidth="244.0" promptText="Username" style="-fx-background-radius: 20; -fx-background-color: #181818; -fx-border-color: #49A1B6; -fx-border-radius: 20; -fx-border-width: 1.6;">
+      <TextField fx:id="usernameTextField" alignment="CENTER" layoutX="178.0" layoutY="248.0" prefHeight="40.0" prefWidth="244.0" promptText="Username" style="-fx-background-radius: 20; -fx-background-color: #181818; -fx-border-color: #49A1B6; -fx-border-radius: 20; -fx-border-width: 1.6; -fx-text-inner-color: white;">
          <font>
             <Font size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="passwordTextField" alignment="CENTER" layoutX="180.0" layoutY="361.0" prefHeight="40.0" prefWidth="244.0" promptText="Password" style="-fx-background-radius: 20; -fx-background-color: #181818; -fx-border-color: #49A1B6; -fx-border-radius: 20; -fx-border-width: 1.6;">
+      <TextField fx:id="passwordTextField" alignment="CENTER" layoutX="179.0" layoutY="309.0" prefHeight="40.0" prefWidth="244.0" promptText="Password" style="-fx-background-radius: 20; -fx-background-color: #181818; -fx-border-color: #49A1B6; -fx-border-radius: 20; -fx-border-width: 1.6; -fx-text-inner-color: white;">
          <font>
             <Font size="16.0" />
          </font>
       </TextField>
-      <Button layoutX="247.0" layoutY="442.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="108.0" style="-fx-background-color: #181818; -fx-border-radius: 10; -fx-border-color: #638767; -fx-border-width: 1.7;" text="Login" textFill="WHITE">
+      <Button layoutX="246.0" layoutY="390.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="108.0" style="-fx-background-color: #181818; -fx-border-radius: 10; -fx-border-color: #638767; -fx-border-width: 1.7;" text="Login" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
@@ -41,10 +41,5 @@
             <Image url="@Github.png" />
          </image>
       </ImageView>
-      <TextField fx:id="nameTextField" alignment="CENTER" layoutX="179.0" layoutY="241.0" prefHeight="40.0" prefWidth="244.0" promptText="Name" style="-fx-background-radius: 20; -fx-background-color: #181818; -fx-border-color: #49A1B6; -fx-border-radius: 20; -fx-border-width: 1.6;">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </TextField>
    </children>
 </AnchorPane>
