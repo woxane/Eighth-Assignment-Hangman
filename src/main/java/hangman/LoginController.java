@@ -35,6 +35,9 @@ public class LoginController {
         usernameTextField.setStyle(css);
         passwordTextField.setStyle(css);
         credentialLabel.setVisible(true);
+
+        shake(usernameTextField);
+        shake(passwordTextField);
     }
 
 
