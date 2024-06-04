@@ -1,9 +1,11 @@
 package hangman;
 
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.util.Duration;
 
 public class LoginController {
 
@@ -24,6 +26,14 @@ public class LoginController {
         }
 
         switchMenuPage();
+    }
+
+    public void setWrongCredentialStyle() {
+        String css = "-fx-background-radius: 20;-fx-background-color: #181818;-fx-border-color: " +
+                "red;-fx-border-radius: 20;-fx-border-width: 1.6;-fx-text-inner-color: white";
+        usernameTextField.setStyle(css);
+        passwordTextField.setStyle(css);
+        credentialLabel.setVisible(true);
     }
 
 }
