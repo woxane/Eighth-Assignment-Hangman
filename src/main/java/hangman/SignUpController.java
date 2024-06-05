@@ -28,7 +28,7 @@ public class SignUpController {
     @FXML
     private Label usernameWarningLabel;
 
-    public void SignUp(ActionEvent event) {
+    public void SignUp(ActionEvent event) throws IOException {
         String name = nameTextField.getText();
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
@@ -38,7 +38,7 @@ public class SignUpController {
             return;
         }
 
-        switchMenuPage();
+        switchMenuPage(event);
     }
 
 
@@ -65,6 +65,16 @@ public class SignUpController {
         root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         scene = new Scene(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+    public void switchMenuPage(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Menu.fxml"));
+        root = fxmlLoader.load();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
