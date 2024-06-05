@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class MenuController {
     private Parent root;
@@ -60,6 +61,21 @@ public class MenuController {
             e.printStackTrace();
         }
         return "TEST";
+    }
+
+
+    public void switchLeaderboardStage(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Leaderboard.fxml"));
+        root = fxmlLoader.load();
+        LeaderboardController leaderboardController = fxmlLoader.getController();
+
+        ArrayList<Leaderboard> leaderboards = HangmanApp.databaseManager.getLeaderboard();
+        leaderboardController.setItems(leaderboards);
+
+        scene = new Scene(root);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
 }
