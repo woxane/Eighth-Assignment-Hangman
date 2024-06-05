@@ -39,7 +39,7 @@ public class LoginController {
         }
 
         HangmanApp.account = account;
-        switchMenuPage();
+        switchMenuPage(event);
     }
 
     public void setWrongCredentialStyle() {
