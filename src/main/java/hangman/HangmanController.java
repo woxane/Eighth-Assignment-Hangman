@@ -201,7 +201,7 @@ public class HangmanController {
         nameOfObjectLabel.setText(nameOfObject);
         elapsedTimeLabel.setText(timerLabel.getText());
 
-        statusLabel.setVisible(true);
+        statusPane.setVisible(true);
     }
 
     public void showWinScreen() {
@@ -213,7 +213,7 @@ public class HangmanController {
         nameOfObjectLabel.setText(nameOfObject);
         elapsedTimeLabel.setText(timerLabel.getText());
 
-        statusLabel.setVisible(true);
+        statusPane.setVisible(true);
     }
 
     public void stopKeyEvent(KeyEvent event) {
