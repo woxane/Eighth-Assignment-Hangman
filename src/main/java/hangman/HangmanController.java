@@ -58,7 +58,7 @@ public class HangmanController {
                 showNextStage(stage);
             }
        } else {
-            changeGuessLabel(pressedKey);
+            changeGuessLabel(pressedKey.charAt(0));
        }
 
        if (!nameOfObject.contains("-")) {
@@ -151,6 +151,18 @@ public class HangmanController {
 
     public void setNameOfObject(String name) {
         this.nameOfObject = name;
+    }
+
+
+    public void changeGuessLabel(char key) {
+        int index = -1;
+        while ((index = nameOfObject.indexOf(key, index + 1)) != -1) {
+            if (index < guessLabel.getText().length()) {
+                StringBuilder sb = new StringBuilder(guessLabel.getText());
+                sb.setCharAt(index, key);
+                guessLabel.setText(sb.toString());
+            }
+        }
     }
 
 }
