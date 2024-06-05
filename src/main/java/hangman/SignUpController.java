@@ -33,7 +33,7 @@ public class SignUpController {
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
 
-        if (checkUsernameInUse(username) == true) {
+        if (HangmanApp.databaseManager.checkUsernameInUse(username) == true) {
             setWrongUsernameStyle();
             return;
         }
