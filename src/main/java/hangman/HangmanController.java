@@ -126,4 +126,10 @@ public class HangmanController {
         updateTimerLabel();
     }
 
+    public void updateTimerLabel() {
+        int minutes = seconds / 60;
+        int remainingSeconds = seconds % 60;
+        timerLabel.setText(String.format("%02d:%02d", minutes, remainingSeconds));
+    }
+
 }
