@@ -6,13 +6,20 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class HangmanController {
     @FXML
@@ -57,6 +64,11 @@ public class HangmanController {
     private int seconds = 0;
     private String nameOfObject;
     private boolean keyEventsEnabled = true;
+
+    private Parent root;
+    private Scene scene;
+    private Stage stage_;
+
 
     public void handleKeyPressed(javafx.scene.input.KeyEvent event) {
         if (keyEventsEnabled) {
@@ -217,5 +229,16 @@ public class HangmanController {
         elapsedTimeLabel.setText(timerLabel.getText());
 
         statusPane.setVisible(true);
+    }
+
+
+    public void switchMenuPage(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Menu.fxml"));
+        root = fxmlLoader.load();
+        stage_ = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage_.setScene(scene);
+        stage_.show();
+
     }
 }
