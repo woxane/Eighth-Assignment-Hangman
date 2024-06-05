@@ -56,42 +56,45 @@ public class HangmanController {
     private Timeline timeline;
     private int seconds = 0;
     private String nameOfObject;
+    private boolean keyEventsEnabled = true;
 
     public void handleKeyPressed(javafx.scene.input.KeyEvent event) {
-        String pressedKey = event.getCode().getName();
-       if (!nameOfObject.contains(pressedKey)) {
-            stage += 1;
-            changeWrongGuessLabel(pressedKey);
+        if (keyEventsEnabled) {
+            String pressedKey = event.getCode().getName();
+            if (!nameOfObject.contains(pressedKey)) {
+                stage += 1;
+                changeWrongGuessLabel(pressedKey);
 
-            if (stage == FINAL_STAGE + 1) {
+                if (stage == FINAL_STAGE + 1) {
+                    stopTimer();
+                    game.setTime(seconds);
+                    game.setWin(false);
+                    game.setWrongGuesses(FINAL_STAGE);
+                    game.updateData();
+
+                    keyEventsEnabled = false;
+                    showLostScreen();
+                } else {
+                    showNextStage(stage);
+                }
+            } else {
+                changeGuessLabel(pressedKey.charAt(0));
+            }
+
+            if (!guessLabel.getText().contains("-")) {
                 stopTimer();
                 game.setTime(seconds);
-                game.setWin(false);
-                game.setWrongGuesses(FINAL_STAGE);
+                game.setWin(true);
+                game.setWrongGuesses(stage);
                 game.updateData();
 
-                stopKeyEvent();
-                showLostScreen();
-            } else {
-                showNextStage(stage);
+                keyEventsEnabled = false;
+                showWinScreen();
             }
-       } else {
-            changeGuessLabel(pressedKey.charAt(0));
-       }
 
-       if (!guessLabel.getText().contains("-")) {
-            stopTimer();
-            game.setTime(seconds);
-            game.setWin(true);
-            game.setWrongGuesses(stage);
-            game.updateData();
-
-            stopKeyEvent();
-            showWinScreen();
-       }
-
-        KeyCode keyCode = event.getCode();
-        System.out.println("Key Pressed: " + keyCode.getName());
+            KeyCode keyCode = event.getCode();
+            System.out.println("Key Pressed: " + keyCode.getName());
+        }
     }
 
     public void showNextStage(int stage) {
@@ -188,7 +191,7 @@ public class HangmanController {
 
     public void changeWrongGuessLabel(String key) {
         if (!wrongGuessLabel.getText().contains(key)) {
-               wrongGuessLabel.setText(wrongGuessLabel.getText() + key);
+               wrongGuessLabel.setText(wrongGuessLabel.getText() + " " + key);
         }
     }
 
@@ -217,6 +220,8 @@ public class HangmanController {
     }
 
     public void stopKeyEvent() {
-        statusLabel.getScene().removeEventFilter(KeyEvent.KEY_PRESSED , this::handleKeyPressed);
+        System.err.println("I CAMMEEE HEREEE");
+        statusLabel.getScene().removeEventHandler(KeyEvent.KEY_PRESSED , this::handleKeyPressed);
+        statusLabel.getScene().remove
     }
 }
