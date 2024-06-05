@@ -27,7 +27,7 @@ public class LoginController {
     @FXML
     private Label credentialLabel;
 
-    public void login(ActionEvent event) {
+    public void login(ActionEvent event) throws IOException {
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
 
@@ -69,6 +69,15 @@ public class LoginController {
         root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
         scene = new Scene(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchMenuPage(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Menu.fxml"));
+        root = fxmlLoader.load();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
