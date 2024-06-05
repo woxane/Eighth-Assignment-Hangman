@@ -66,6 +66,6 @@ public class Game {
     }
 
     public void updateData() {
-        HangmanApp.databaseManager.updateGame();
+        HangmanApp.databaseManager.updateGame(this);
     }
 }
