@@ -38,6 +38,9 @@ public class SignUpController {
             return;
         }
 
+        Account account = new Account(name , username , password);
+        HangmanApp.account = account;
+
         switchMenuPage(event);
     }
 
