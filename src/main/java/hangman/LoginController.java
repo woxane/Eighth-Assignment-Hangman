@@ -31,7 +31,7 @@ public class LoginController {
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
 
-        Account account = checkLoginData(username , password);
+        Account account = HangmanApp.databaseManager.checkLoginData(username , password);
 
         if (account == null) {
             setWrongCredentialStyle();
