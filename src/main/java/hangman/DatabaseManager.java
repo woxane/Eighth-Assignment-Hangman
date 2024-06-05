@@ -3,6 +3,7 @@ package hangman;
 import javafx.scene.chart.PieChart;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 
 public class DatabaseManager {
@@ -131,6 +132,34 @@ public class DatabaseManager {
             System.err.println("ERROR WHILE updateGame called!");
             throw new RuntimeException(e);
         }
+    }
+
+
+    public ArrayList<Leaderboard> getLeaderboard() {
+        String query = "SELECT UserInfo.Username, GameInfo.Time, GameInfo.WrongGuesses, GameInfo.Word " +
+                "FROM UserInfo " +
+                "INNER JOIN GameInfo ON UserInfo.UserID = GameInfo.UserID " +
+                "ORDER BY GameInfo.Time";
+        Leaderboard leaderboard;
+        ArrayList<Leaderboard> leaderboards = new ArrayList<>();
+
+        try {
+            statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                String username = resultSet.getString("Username");
+                int time = resultSet.getInt("Time");
+                int wrongGuesses = resultSet.getInt("WrongGuesses");
+                String word = resultSet.getString("Word");
+                leaderboard = new Leaderboard(username , time , wrongGuesses , word);
+                leaderboards.add(leaderboard)
+            }
+        } catch (SQLException e) {
+            System.err.println("ERROR WHILE getLeaderboard called!");
+            e.printStackTrace();
+        }
+
+        return leaderboards;
     }
 
 }
