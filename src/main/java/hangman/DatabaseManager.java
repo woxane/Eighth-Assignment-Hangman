@@ -20,4 +20,20 @@ public class DatabaseManager {
         }
     }
 
+
+    public boolean checkUsernameInUse(String username) {
+        String query = "SELECT * FROM UserInfo WHERE Username = '" + username+ "'";
+
+        try (ResultSet resultSet = statement.executeQuery(query)) {
+            if (resultSet.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            System.err.println("ERROR WHILE checkUsernameInUse called !");
+            throw new RuntimeException(e);
+        }
+    }
+
 }
