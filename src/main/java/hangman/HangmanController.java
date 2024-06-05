@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 public class HangmanController {
@@ -36,6 +37,16 @@ public class HangmanController {
     private Label timerLabel;
     @FXML
     private Label wrongGuessLabel;
+    @FXML
+    private Label statusLabel;
+    @FXML
+    private Label usernameLabel;
+    @FXML
+    private Label nameOfObjectLabel;
+    @FXML
+    private Label elapsedTimeLabel;
+    @FXML
+    private AnchorPane statusPane;
 
     private int stage = 0;
     private final int FINAL_STAGE = 9;
@@ -115,7 +126,7 @@ public class HangmanController {
                 break;
 
             default :
-                System.out.println("ERROR IN SHOWING STAGE OF HANGMAN");
+                System.err.println("ERROR IN SHOWING STAGE OF HANGMAN");
         }
     }
 
@@ -175,4 +186,15 @@ public class HangmanController {
         }
     }
 
+    public void showLostScreen() {
+        statusLabel.setStyle("-fx-text-fill: #FF5555");
+        statusLabel.setText("You Lost");
+
+        usernameLabel.setText("#" + HangmanApp.account.getUsername());
+
+        nameOfObjectLabel.setText(nameOfObject);
+        elapsedTimeLabel.setText(timerLabel.getText());
+
+        statusLabel.setVisible(true);
+    }
 }
