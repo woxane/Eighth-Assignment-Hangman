@@ -18,7 +18,7 @@ public class MenuController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Game.fxml"));
         root = fxmlLoader.load();
 
-        Game game = new Game("Test text");
+        Game game = new Game(HangmanApp.account.getUserId(), "Test text");
         HangmanController.game = game;
 
         HangmanController hangmanController = fxmlLoader.getController();
