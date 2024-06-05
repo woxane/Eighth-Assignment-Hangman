@@ -6,9 +6,11 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
@@ -61,12 +63,14 @@ public class HangmanController {
             stage += 1;
             changeWrongGuessLabel(pressedKey);
 
-            if (stage == FINAL_STAGE) {
+            if (stage == FINAL_STAGE + 1) {
                 stopTimer();
                 game.setTime(seconds);
                 game.setWin(false);
                 game.setWrongGuesses(FINAL_STAGE);
                 game.updateData();
+
+                stopKeyEvent(event);
                 showLostScreen();
             } else {
                 showNextStage(stage);
@@ -81,6 +85,8 @@ public class HangmanController {
             game.setWin(true);
             game.setWrongGuesses(stage);
             game.updateData();
+
+            stopKeyEvent(event);
             showWinScreen();
        }
 
@@ -208,5 +214,9 @@ public class HangmanController {
         elapsedTimeLabel.setText(timerLabel.getText());
 
         statusLabel.setVisible(true);
+    }
+
+    public void stopKeyEvent(KeyEvent event) {
+        ((Node)event.getSource()).getScene().removeEventFilter(KeyEvent.KEY_PRESSED , this::handleKeyPressed);
     }
 }
