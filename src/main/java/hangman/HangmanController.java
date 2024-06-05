@@ -46,6 +46,11 @@ public class HangmanController {
            stage += 1;
 
             if (stage == FINAL_STAGE) {
+                stopTimer();
+                game.setTime(seconds);
+                game.setWin(false);
+                game.setWrongGuesses(FINAL_STAGE);
+                game.updateData();
                 showLostScreen();
             } else {
                 showNextStage(stage);
@@ -122,7 +127,6 @@ public class HangmanController {
 
     public void stopTimer() {
         timeline.stop();
-        seconds = 0;
         updateTimerLabel();
     }
 
