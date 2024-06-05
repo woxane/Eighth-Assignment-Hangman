@@ -64,4 +64,8 @@ public class Game {
     public boolean getWin() {
         return this.win;
     }
+
+    public void updateData() {
+        HangmanApp.databaseManager.updateGame();
+    }
 }
