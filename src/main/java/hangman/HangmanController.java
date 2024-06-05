@@ -1,9 +1,15 @@
 package hangman;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.util.Duration;
 
 public class HangmanController {
     @FXML
@@ -26,10 +32,14 @@ public class HangmanController {
     private ImageView leftLeg;
     @FXML
     private Label guessLabel;
+    @FXML
+    private Label timerLabel;
 
     private int stage = 0;
     private final int FINAL_STAGE = 9;
     public static Game game;
+    private Timeline timeline;
+    private int seconds = 0;
 
     public void handleKeyPressed(javafx.scene.input.KeyEvent event) {
        if (checkInputChar(event.getCode().getName() , nameOfObject) == false) {
@@ -97,4 +107,23 @@ public class HangmanController {
 
         guessLabel.setText(text);
     }
+
+    public void startTimer() {
+        timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                seconds++;
+                updateTimerLabel();
+            }
+        }));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+    }
+
+    public void stopTimer() {
+        timeline.stop();
+        seconds = 0;
+        updateTimerLabel();
+    }
+
 }
