@@ -31,11 +31,14 @@ public class LoginController {
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
 
-        if (checkLoginData(username , password) == false) {
+        Account account = checkLoginData(username , password);
+
+        if (account == null) {
             setWrongCredentialStyle();
             return;
         }
 
+        HangmanApp.account = account;
         switchMenuPage();
     }
 
