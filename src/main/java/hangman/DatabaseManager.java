@@ -91,8 +91,8 @@ public class DatabaseManager {
 
     public int insertGame(Game game) {
         /*return of this function is going to be the GameId that is primary key*/
-        String query = "INSERT INTO UserInfo (UserId , Word) VALUES (?, ?)";
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+        String query = "INSERT INTO GameInfo (UserId , Word) VALUES (?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, game.getUserId());
             statement.setString(2, game.getText());
 
@@ -111,6 +111,24 @@ public class DatabaseManager {
         }
 
         return 0;
+    }
+
+    public void updateGame(Game game) {
+        String sql = "UPDATE GameInfo SET WrongGuesses = ?, Time = ?, Win = ? WHERE UserID = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, game.getWrongGuesses());
+            statement.setInt(2, game.getTime());
+            statement.setBoolean(3, game.getWin());
+            statement.setInt(4, game.getUserId());
+
+            int rowsUpdated = statement.executeUpdate();
+            if (rowsUpdated == 0){
+                System.err.println("NO ROW UPDATED IN udpateGame stack !");
+            }
+        } catch (SQLException e) {
+            System.err.println("ERROR WHILE updateGame called!");
+            throw new RuntimeException(e);
+        }
     }
 
 }
