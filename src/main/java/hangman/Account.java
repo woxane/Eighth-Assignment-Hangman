@@ -8,11 +8,13 @@ public class Account {
     private String password;
     private final int USER_ID;
 
-    public Account(String name , String username , String password , int USER_ID) {
+    public Account(String name , String username , String password) {
         this.name = name;
         this.username = username;
         this.password = password;
-        this.USER_ID = USER_ID;;
+
+        int userId = HangmanApp.databaseManager.insertAccount(this);
+        this.USER_ID = userId;;
     }
 
     public String getName() {
