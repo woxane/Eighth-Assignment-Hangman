@@ -96,7 +96,7 @@ public class DatabaseManager {
         String query = "INSERT INTO GameInfo (UserId , Word) VALUES (?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, game.getUserId());
-            statement.setString(2, game.getText());
+            statement.setString(2, game.getWord());
 
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
