@@ -12,9 +12,9 @@ public class HangmanController {
     @FXML
     private ImageView stickUp;
     @FXML
-    private ImageView Head;
+    private ImageView head;
     @FXML
-    private ImageView Body;
+    private ImageView body;
     @FXML
     private ImageView rightHand;
     @FXML
@@ -41,5 +41,47 @@ public class HangmanController {
 
         KeyCode keyCode = event.getCode();
         System.out.println("Key Pressed: " + keyCode.getName());
+    }
+
+    public void showNextStage(int stage) {
+        switch (stage) {
+            case 1 :
+                stickBase.setVisible(true);
+                break;
+
+            case 2 :
+                stickStanding.setVisible(true);
+                break;
+
+            case 3 :
+                stickUp.setVisible(true);
+                break;
+            case 4 :
+                head.setVisible(true);
+                break;
+
+            case 5 :
+                body.setVisible(true);
+                break;
+
+            case 6 :
+                rightHand.setVisible(true);
+                break;
+
+            case 7 :
+                leftHand.setVisible(true);
+                break;
+
+            case 8 :
+                rightLeg.setVisible(true);
+                break;
+
+            case 9 :
+                leftLeg.setVisible(true);
+                break;
+
+            default :
+                System.out.println("ERROR IN SHOWING STAGE OF HANGMAN");
+        }
     }
 }
