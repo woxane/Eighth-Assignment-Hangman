@@ -53,7 +53,7 @@
             <Image url="@hangmanLeftLeg.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="guessLabel" layoutX="247.0" layoutY="301.0" text="----" textFill="WHITE">
+      <Label fx:id="guessLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="301.0" prefHeight="98.0" prefWidth="600.0" text="--------" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS" size="70.0" />
          </font>
@@ -66,6 +66,11 @@
       <Label fx:id="wrongGuessLabel" alignment="CENTER" layoutX="-1.0" layoutY="515.0" prefHeight="33.0" prefWidth="600.0" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="timerLabel" layoutX="26.0" layoutY="18.0" text="00:00" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="21.0" />
          </font>
       </Label>
    </children>
