@@ -29,7 +29,7 @@ public class HangmanController {
 
     private int stage = 0;
     private final int FINAL_STAGE = 9;
-
+    public static Game game;
 
     public void handleKeyPressed(javafx.scene.input.KeyEvent event) {
        if (checkInputChar(event.getCode().getName() , nameOfObject) == false) {
