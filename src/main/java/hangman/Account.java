@@ -29,7 +29,7 @@ public class Account {
         return this.password;
     }
 
-    public UUID getUserId() {
+    public int getUserId() {
         return this.USER_ID;
     }
 }
