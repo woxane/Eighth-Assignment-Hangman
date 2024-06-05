@@ -70,7 +70,7 @@ public class HangmanController {
                 game.setWrongGuesses(FINAL_STAGE);
                 game.updateData();
 
-                stopKeyEvent(event);
+                stopKeyEvent();
                 showLostScreen();
             } else {
                 showNextStage(stage);
@@ -79,14 +79,14 @@ public class HangmanController {
             changeGuessLabel(pressedKey.charAt(0));
        }
 
-       if (!nameOfObject.contains("-")) {
+       if (!guessLabel.getText().contains("-")) {
             stopTimer();
             game.setTime(seconds);
             game.setWin(true);
             game.setWrongGuesses(stage);
             game.updateData();
 
-            stopKeyEvent(event);
+            stopKeyEvent();
             showWinScreen();
        }
 
@@ -216,7 +216,7 @@ public class HangmanController {
         statusPane.setVisible(true);
     }
 
-    public void stopKeyEvent(KeyEvent event) {
-        ((Node)event.getSource()).getScene().removeEventFilter(KeyEvent.KEY_PRESSED , this::handleKeyPressed);
+    public void stopKeyEvent() {
+        statusLabel.getScene().removeEventFilter(KeyEvent.KEY_PRESSED , this::handleKeyPressed);
     }
 }
