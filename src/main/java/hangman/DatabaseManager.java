@@ -61,4 +61,30 @@ public class DatabaseManager {
         return null;
     }
 
+
+    public int insertAccount(Account account) {
+        String query = "INSERT INTO UserInfo (Name, Username, Password) VALUES (?, ?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, account.getName());
+            statement.setString(2, account.getUsername());
+            statement.setString(3, account.getPassword());
+
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                try (ResultSet resultSet = statement.getGeneratedKeys()) {
+                    if (resultSet.next()) {
+                        int lastInsertedRowId = resultSet.getInt(1);
+                        return lastInsertedRowId;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("ERROR WHILE insertAccount called !");
+            throw new RuntimeException(e);
+        }
+
+
+        return 0;
+    }
+
 }
