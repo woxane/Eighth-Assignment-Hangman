@@ -44,7 +44,7 @@ public class HangmanController {
 
     public void handleKeyPressed(javafx.scene.input.KeyEvent event) {
         String pressedKey = event.getCode().getName();
-       if (nameOfObject.contains(pressedKey)) {
+       if (!nameOfObject.contains(pressedKey)) {
            stage += 1;
 
             if (stage == FINAL_STAGE) {
@@ -57,6 +57,17 @@ public class HangmanController {
             } else {
                 showNextStage(stage);
             }
+       } else {
+            changeGuessLabel(pressedKey);
+       }
+
+       if (!nameOfObject.contains("-")) {
+            stopTimer();
+            game.setTime(seconds);
+            game.setWin(true);
+            game.setWrongGuesses(stage);
+            game.updateData();
+            showWinScreen();
        }
 
         KeyCode keyCode = event.getCode();
