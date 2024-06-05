@@ -38,4 +38,28 @@ public class Game {
     public void setWin(boolean win) {
         this.win = win;
     }
+
+    public UUID getGameID() {
+        return this.GAME_ID;
+    }
+
+    public UUID getUSER_ID() {
+        return this.USER_ID;
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public int getWrongGuesses() {
+        return this.wrongGuesses;
+    }
+
+    public int getTime() {
+        return this.time;
+    }
+
+    public boolean getWin() {
+        return this.win;
+    }
 }
