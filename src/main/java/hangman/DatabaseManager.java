@@ -152,7 +152,7 @@ public class DatabaseManager {
                 int wrongGuesses = resultSet.getInt("WrongGuesses");
                 String word = resultSet.getString("Word");
                 leaderboard = new Leaderboard(username , time , wrongGuesses , word);
-                leaderboards.add(leaderboard)
+                leaderboards.add(leaderboard);
             }
         } catch (SQLException e) {
             System.err.println("ERROR WHILE getLeaderboard called!");
