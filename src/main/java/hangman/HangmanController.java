@@ -218,10 +218,4 @@ public class HangmanController {
 
         statusPane.setVisible(true);
     }
-
-    public void stopKeyEvent() {
-        System.err.println("I CAMMEEE HEREEE");
-        statusLabel.getScene().removeEventHandler(KeyEvent.KEY_PRESSED , this::handleKeyPressed);
-        statusLabel.getScene().remove
-    }
 }
