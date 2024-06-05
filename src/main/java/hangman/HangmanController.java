@@ -40,9 +40,11 @@ public class HangmanController {
     public static Game game;
     private Timeline timeline;
     private int seconds = 0;
+    private String nameOfObject;
 
     public void handleKeyPressed(javafx.scene.input.KeyEvent event) {
-       if (checkInputChar(event.getCode().getName() , nameOfObject) == false) {
+        String pressedKey = event.getCode().getName();
+       if (nameOfObject.contains(pressedKey)) {
            stage += 1;
 
             if (stage == FINAL_STAGE) {
@@ -134,6 +136,10 @@ public class HangmanController {
         int minutes = seconds / 60;
         int remainingSeconds = seconds % 60;
         timerLabel.setText(String.format("%02d:%02d", minutes, remainingSeconds));
+    }
+
+    public void setNameOfObject(String name) {
+        this.nameOfObject = name;
     }
 
 }
