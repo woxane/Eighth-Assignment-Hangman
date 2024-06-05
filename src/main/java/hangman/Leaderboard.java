@@ -3,13 +3,13 @@ package hangman;
 public class Leaderboard {
     private String username;
     private int time;
-    private int wrongGusses;
+    private int wrongGuesses;
     private String word;
 
     public Leaderboard(String username , int time , int wrongGusses , String word) {
         this.username = username;
         this.time = time;
-        this.wrongGusses = wrongGusses;
+        this.wrongGuesses = wrongGusses;
         this.word = word;
     }
 
@@ -19,8 +19,8 @@ public class Leaderboard {
     public int getTime() {
         return time;
     }
-    public int getWrongGusses() {
-        return wrongGusses;
+    public int getWrongGuesses() {
+        return wrongGuesses;
     }
 
     public String getWord() {
