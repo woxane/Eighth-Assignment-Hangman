@@ -3,20 +3,41 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hangman.LeaderboardController">
    <children>
-      <TableView fx:id="table" layoutY="-1.0" prefHeight="647.0" prefWidth="600.0" style="-fx-background-color: #181818;" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <columns>
-          <TableColumn fx:id="usernameColumn" editable="false" prefWidth="150.0" resizable="false" style="-fx-background-color: #6272A4;" text="Username" />
-          <TableColumn fx:id="timeColumn" editable="false" prefWidth="150.0" resizable="false" style="-fx-background-color: #6272A4;" text="Time" />
-            <TableColumn fx:id="wrongGuessesColumn" editable="false" prefWidth="150.0" resizable="false" style="-fx-background-color: #6272A4;" text="Wrong Guesses" />
-            <TableColumn fx:id="wordColumn" editable="false" prefWidth="150.0" resizable="false" style="-fx-background-color: #6272A4;" text="Word" />
-        </columns>
-      </TableView>
-      <Button layoutX="255.0" layoutY="636.0" mnemonicParsing="false" style="-fx-background-color: #181818; -fx-border-color: #6272A4; -fx-border-radius: 50; -fx-border-width: 2;" text="Back" textFill="#6272a4">
+       <TableView fx:id="table" layoutY="-1.0" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #181818;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+           <columns>
+               <TableColumn fx:id="usernameColumn" editable="false" prefWidth="150.0" resizable="false" style="-fx-background-color: #6272A4;" text="Username">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="username" />
+                   </cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="timeColumn" editable="false" prefWidth="150.0" resizable="false" style="-fx-background-color: #6272A4;" text="Time">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="time" />
+                   </cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="wrongGuessesColumn" editable="false" prefWidth="150.0" resizable="false" style="-fx-background-color: #6272A4;" text="Wrong Guesses">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="wrongGuesses" />
+                   </cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="wordColumn" editable="false" prefWidth="150.0" resizable="false" style="-fx-background-color: #6272A4;" text="Word">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="word" />
+                   </cellValueFactory>
+               </TableColumn>
+           </columns>
+           <effect>
+               <Blend />
+           </effect>
+       </TableView>
+       <Button layoutX="255.0" layoutY="625.0" mnemonicParsing="false" onAction="#switchMenuPage" style="-fx-background-color: #181818; -fx-border-color: #6272A4; -fx-border-radius: 50; -fx-border-width: 2;" text="Back" textFill="#6272a4">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
