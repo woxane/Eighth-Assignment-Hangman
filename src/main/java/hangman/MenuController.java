@@ -17,9 +17,12 @@ public class MenuController {
     public void switchGameStage(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Game.fxml"));
         root = fxmlLoader.load();
-        int test = 10;
+
+        Game game = new Game("Test text");
+        HangmanController.game = game;
+
         HangmanController hangmanController = fxmlLoader.getController();
-        hangmanController.setGuessText(test);
+        hangmanController.setGuessText(game.getText().length());
 
         scene = new Scene(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
