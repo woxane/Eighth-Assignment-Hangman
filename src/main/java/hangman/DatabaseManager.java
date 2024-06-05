@@ -48,7 +48,7 @@ public class DatabaseManager {
                     String name = resultSet.getString("Name");
                     String username = resultSet.getString("Username");
                     String password = resultSet.getString("Password");
-                    Account account = new Account(name, username, password , userId);
+                    Account account = new Account(name, username, password);
                     return account;
                 } else {
                     return null;
@@ -63,8 +63,9 @@ public class DatabaseManager {
 
 
     public int insertAccount(Account account) {
+        /*return of this function is going to be the GameId that is primary key*/
         String query = "INSERT INTO UserInfo (Name, Username, Password) VALUES (?, ?, ?)";
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, account.getName());
             statement.setString(2, account.getUsername());
             statement.setString(3, account.getPassword());
@@ -83,6 +84,31 @@ public class DatabaseManager {
             throw new RuntimeException(e);
         }
 
+
+        return 0;
+    }
+
+
+    public int insertGame(Game game) {
+        /*return of this function is going to be the GameId that is primary key*/
+        String query = "INSERT INTO UserInfo (UserId , Word) VALUES (?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, game.getUserId());
+            statement.setString(2, game.getText());
+
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                try (ResultSet resultSet = statement.getGeneratedKeys()) {
+                    if (resultSet.next()) {
+                        int lastInsertedRowId = resultSet.getInt(1);
+                        return lastInsertedRowId;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("ERROR WHILE insertGame called !");
+            throw new RuntimeException(e);
+        }
 
         return 0;
     }
