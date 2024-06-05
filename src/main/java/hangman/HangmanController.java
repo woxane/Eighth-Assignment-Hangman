@@ -1,6 +1,7 @@
 package hangman;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 
@@ -23,6 +24,8 @@ public class HangmanController {
     private ImageView rightLeg;
     @FXML
     private ImageView leftLeg;
+    @FXML
+    private Label guessLabel;
 
     private int stage = 0;
     private final int FINAL_STAGE = 9;
@@ -83,5 +86,15 @@ public class HangmanController {
             default :
                 System.out.println("ERROR IN SHOWING STAGE OF HANGMAN");
         }
+    }
+
+
+    public void setGuessText(int numberOfText) {
+        String text = "";
+        for (int i = 0 ; i < numberOfText ; i++) {
+            text += "-";
+        }
+
+        guessLabel.setText(text);
     }
 }
