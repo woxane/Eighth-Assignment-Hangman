@@ -13,7 +13,7 @@ public class HangmanApp extends Application {
     public static DatabaseManager databaseManager;
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HangmanApp.class.getResource("Menu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HangmanApp.class.getResource("Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 700);
         stage.setTitle("Hangman");
         stage.setScene(scene);
