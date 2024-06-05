@@ -23,12 +23,12 @@
             <Image url="@hangmanStickUp.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="Head" fitHeight="88.0" fitWidth="85.0" layoutX="361.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="head" fitHeight="88.0" fitWidth="85.0" layoutX="361.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@hangmanHead.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="Body" fitHeight="82.0" fitWidth="19.0" layoutX="384.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="body" fitHeight="82.0" fitWidth="19.0" layoutX="384.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@hangmanBody.jpg" />
          </image>
