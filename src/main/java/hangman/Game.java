@@ -21,10 +21,12 @@ public class Game {
     }
 
 
-    public Game(int gameId, int userId,String text) {
-        this.GAME_ID = gameId;
+    public Game(int userId , String text) {
         this.USER_ID = userId;
         this.text = text;
+
+        int gameId = HangmanApp.databaseManager.insertGame(this);
+        this.GAME_ID = gameId;
     }
 
     public void setWrongGuesses(int wrongGuesses) {
@@ -39,11 +41,11 @@ public class Game {
         this.win = win;
     }
 
-    public UUID getGameID() {
+    public int getGameID() {
         return this.GAME_ID;
     }
 
-    public UUID getUSER_ID() {
+    public int getUserId() {
         return this.USER_ID;
     }
 
