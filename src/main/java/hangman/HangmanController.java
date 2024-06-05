@@ -197,4 +197,16 @@ public class HangmanController {
 
         statusLabel.setVisible(true);
     }
+
+    public void showWinScreen() {
+        statusLabel.setStyle("-fx-text-fill: #50fa7b");
+        statusLabel.setText("You Won");
+
+        usernameLabel.setText("#" + HangmanApp.account.getUsername());
+
+        nameOfObjectLabel.setText(nameOfObject);
+        elapsedTimeLabel.setText(timerLabel.getText());
+
+        statusLabel.setVisible(true);
+    }
 }
