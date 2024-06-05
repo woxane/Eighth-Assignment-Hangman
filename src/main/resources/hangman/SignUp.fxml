@@ -31,7 +31,7 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <Button layoutX="246.0" layoutY="466.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="49.0" prefWidth="108.0" style="-fx-background-color: #181818; -fx-border-radius: 10; -fx-border-color: #638767; -fx-border-width: 1.7;" text="Login" textFill="WHITE">
+      <Button layoutX="246.0" layoutY="466.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="49.0" prefWidth="108.0" style="-fx-background-color: #181818; -fx-border-radius: 10; -fx-border-color: #638767; -fx-border-width: 1.7;" text="Sign Up" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
