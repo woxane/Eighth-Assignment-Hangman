@@ -4,17 +4,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
+import java.util.ArrayList;
+
 public class LeaderboardController {
     @FXML
     private TableView<Leaderboard> table;
-    @FXML
-    private TableColumn<Leaderboard , String> usernameColumn;
-    @FXML
-    private TableColumn<Leaderboard, String> timeColumn;
-    @FXML
-    private TableColumn<Leaderboard , String> wordColumn;
-    @FXML
-    private TableColumn<Leaderboard , Integer> wrongGuessesColumn;
 
+    public void setItems(ArrayList<Leaderboard> leaderboards) {
+        table.getItems().addAll(leaderboards);
+    }
 
 }
