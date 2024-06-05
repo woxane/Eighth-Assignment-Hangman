@@ -23,6 +23,7 @@ public class MenuController {
 
         HangmanController hangmanController = fxmlLoader.getController();
         hangmanController.setGuessText(game.getText().length());
+        hangmanController.startTimer();
 
         scene = new Scene(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
