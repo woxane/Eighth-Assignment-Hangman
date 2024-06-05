@@ -74,19 +74,19 @@
             <Font name="Comic Sans MS Bold" size="21.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="statusPane" layoutX="151.0" layoutY="150.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #44475A; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-width: 1.6; -fx-border-color: #6272A4; -fx-background-color: #44475A;" visible="false">
+      <AnchorPane fx:id="statusPane" layoutX="151.0" layoutY="150.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #44475A; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-width: 1.6; -fx-border-color: #6272A4; -fx-background-color: #44475A;">
          <children>
-            <Label fx:id="statusLabel" layoutX="96.0" layoutY="28.0" prefHeight="50.0" prefWidth="108.0" style="-fx-font-weight: bold;" text="Status" textFill="#50fa7b">
+            <Label fx:id="statusLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="28.0" prefHeight="50.0" prefWidth="294.0" style="-fx-font-weight: bold;" text="Status" textFill="#50fa7b">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
-            <Label fx:id="nameOfObjectLabel" layoutX="125.0" layoutY="164.0" text="Name" textFill="#f1fa8c">
+            <Label fx:id="nameOfObjectLabel" alignment="CENTER" layoutX="2.0" layoutY="164.0" prefHeight="26.0" prefWidth="294.0" text="Name" textFill="#f1fa8c">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="elapsedTimeLabel" layoutX="48.0" layoutY="209.0" text="Elapsed Time : 00:00" textFill="#f1fa8c">
+            <Label fx:id="elapsedTimeLabel" alignment="CENTER" layoutX="3.0" layoutY="209.0" prefHeight="28.0" prefWidth="294.0" text="Elapsed Time : 00:00" textFill="#f1fa8c">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
