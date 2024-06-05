@@ -6,7 +6,7 @@ import java.sql.*;
 
 
 public class DatabaseManager {
-    private static final String URL = "jdbc:sqlite:test.db";
+    private static final String URL = "jdbc:sqlite:src/main/java/hangman/database.db";
     private Connection connection;
     private Statement statement;
 
@@ -48,7 +48,7 @@ public class DatabaseManager {
                     String name = resultSet.getString("Name");
                     String username = resultSet.getString("Username");
                     String password = resultSet.getString("Password");
-                    Account account = new Account(name, username, password);
+                    Account account = new Account(name, username, password ,userId);
                     return account;
                 } else {
                     return null;
@@ -56,6 +56,7 @@ public class DatabaseManager {
             }
         } catch (SQLException e) {
             System.err.println("ERROR WHILE checkLoginData called!");
+            e.printStackTrace();
         }
 
         return null;
@@ -81,6 +82,7 @@ public class DatabaseManager {
             }
         } catch (SQLException e) {
             System.err.println("ERROR WHILE insertAccount called !");
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
 
