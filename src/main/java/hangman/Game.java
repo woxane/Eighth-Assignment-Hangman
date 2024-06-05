@@ -3,15 +3,15 @@ package hangman;
 import java.util.UUID;
 
 public class Game {
-    private final UUID GAME_ID;
-    private final UUID USER_ID;
+    private final int GAME_ID;
+    private final int USER_ID;
     private final String text;
     private int wrongGuesses;
     private int time;
     private boolean win;
 
 
-    public Game(UUID gameId, UUID userId, String text , int wrongGuesses , int time , boolean win) {
+    public Game(int gameId, int userId, String text , int wrongGuesses , int time , boolean win) {
         this.GAME_ID = gameId;
         this.USER_ID = userId;
         this.text = text;
@@ -21,9 +21,9 @@ public class Game {
     }
 
 
-    public Game(String text) {
-        this.GAME_ID = UUID.randomUUID();
-        this.USER_ID = UUID.randomUUID();
+    public Game(int gameId, int userId,String text) {
+        this.GAME_ID = gameId;
+        this.USER_ID = userId;
         this.text = text;
     }
 

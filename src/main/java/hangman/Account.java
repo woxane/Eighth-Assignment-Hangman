@@ -6,15 +6,9 @@ public class Account {
     private String name;
     private String username;
     private String password;
-    private final UUID USER_ID;
-    public Account(String name , String username , String password) {
-        this.name = name;
-        this.username = username;
-        this.password = password;
-        this.USER_ID = UUID.randomUUID();;
-    }
+    private final int USER_ID;
 
-    public Account(String name , String username , String password , UUID USER_ID) {
+    public Account(String name , String username , String password , int USER_ID) {
         this.name = name;
         this.username = username;
         this.password = password;
