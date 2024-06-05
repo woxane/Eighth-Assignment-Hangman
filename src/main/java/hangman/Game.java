@@ -21,9 +21,21 @@ public class Game {
     }
 
 
-    public Game(UUID gameId, UUID userId, String text) {
+    public Game(String text) {
         this.GAME_ID = UUID.randomUUID();
         this.USER_ID = UUID.randomUUID();
         this.text = text;
+    }
+
+    public void setWrongGuesses(int wrongGuesses) {
+        this.wrongGuesses = wrongGuesses;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    public void setWin(boolean win) {
+        this.win = win;
     }
 }
