@@ -36,4 +36,29 @@ public class DatabaseManager {
         }
     }
 
+
+    public Account checkLoginData(String usernameToCheck , String passwordToCheck) {
+        String query = "SELECT * FROM UserInfo WHERE Username = ? AND Password = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, usernameToCheck);
+            statement.setString(2, passwordToCheck);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    int userId = resultSet.getInt("UserID");
+                    String name = resultSet.getString("Name");
+                    String username = resultSet.getString("Username");
+                    String password = resultSet.getString("Password");
+                    Account account = new Account(name, username, password , userId);
+                    return account;
+                } else {
+                    return null;
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("ERROR WHILE checkLoginData called!");
+        }
+
+        return null;
+    }
+
 }
