@@ -2,11 +2,11 @@ package hangman;
 
 public class Leaderboard {
     private String username;
-    private String time;
+    private int time;
     private int wrongGusses;
     private String word;
 
-    public Leaderboard(String username , String time , int wrongGusses , String word) {
+    public Leaderboard(String username , int time , int wrongGusses , String word) {
         this.username = username;
         this.time = time;
         this.wrongGusses = wrongGusses;
@@ -16,7 +16,7 @@ public class Leaderboard {
     public String getUsername() {
         return username;
     }
-    public String getTime() {
+    public int getTime() {
         return time;
     }
     public int getWrongGusses() {
