@@ -34,6 +34,8 @@ public class HangmanController {
     private Label guessLabel;
     @FXML
     private Label timerLabel;
+    @FXML
+    private Label wrongGuessLabel;
 
     private int stage = 0;
     private final int FINAL_STAGE = 9;
@@ -45,7 +47,8 @@ public class HangmanController {
     public void handleKeyPressed(javafx.scene.input.KeyEvent event) {
         String pressedKey = event.getCode().getName();
        if (!nameOfObject.contains(pressedKey)) {
-           stage += 1;
+            stage += 1;
+            changeWrongGuessLabel(pressedKey);
 
             if (stage == FINAL_STAGE) {
                 stopTimer();
@@ -162,6 +165,13 @@ public class HangmanController {
                 sb.setCharAt(index, key);
                 guessLabel.setText(sb.toString());
             }
+        }
+    }
+
+
+    public void changeWrongGuessLabel(String key) {
+        if (!wrongGuessLabel.getText().contains(key)) {
+               wrongGuessLabel.setText(wrongGuessLabel.getText() + key);
         }
     }
 
