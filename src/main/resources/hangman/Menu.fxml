@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hangman.MenuController">
+   <children>
+      <Label layoutX="177.0" layoutY="58.0" style="-fx-font-weight: bold;" text="Hangman" textFill="WHITE">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Label>
+      <Button layoutX="240.0" layoutY="213.0" mnemonicParsing="false" onAction="#switchGameStage" prefHeight="66.0" prefWidth="120.0" style="-fx-background-color: #181818; -fx-border-radius: 50; -fx-border-color: #49A1B6; -fx-border-width: 2; -fx-font-weight: bold;" text="Start" textFill="#fffbfb">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Button>
+      <Button layoutX="161.0" layoutY="299.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="280.0" style="-fx-background-color: #181818; -fx-border-radius: 50; -fx-border-color: #49A1B6; -fx-border-width: 2; -fx-font-weight: bold;" text="Previous Games" textFill="#fffbfb">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Button>
+      <Button layoutX="185.0" layoutY="388.0" mnemonicParsing="false" onAction="#switchLeaderboardStage" prefHeight="66.0" prefWidth="233.0" style="-fx-background-color: #181818; -fx-border-radius: 50; -fx-border-color: #49A1B6; -fx-border-width: 2; -fx-font-weight: bold;" text="Leaderboard" textFill="#fffbfb">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Button>
+      <Button layoutX="248.0" layoutY="473.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="108.0" style="-fx-background-color: #181818; -fx-border-radius: 50; -fx-border-color: #49A1B6; -fx-border-width: 2; -fx-font-weight: bold;" text="Exit" textFill="#fffbfb">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
